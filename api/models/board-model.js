@@ -5,7 +5,12 @@ const BoardSchema = new Schema({
 	access: {type: String, required: true},
 	bg: {type: String, required: true},
 	chief: {type: String, required: true},
-	columns: [],
+	columns: [
+		new Schema({ 
+			nameColumn: {type: String, required: true},
+			cards: []
+		}, { _id: false })
+	],
 })
 
 module.exports = model('Board', BoardSchema);

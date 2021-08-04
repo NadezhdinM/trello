@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { FC, useContext } from 'react';
 import './personal.scss';
 import PersonalHeader from '../../components/personalHeader/PersonalHeader';
 import Sidebar from '../../components/sidebar/Sidebar';
@@ -6,8 +6,9 @@ import Boards from '../boards/Boards';
 import Modal from '../../components/modal/Modal';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Context } from '../..';
+import { observer } from 'mobx-react-lite';
 
-function Personal() {
+const Personal: FC = () => {
 	const { store } = useContext(Context);
 	return (
 		<>
@@ -30,4 +31,4 @@ function Personal() {
 	);
 }
 
-export default Personal;
+export default observer(Personal);

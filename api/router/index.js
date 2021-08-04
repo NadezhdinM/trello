@@ -18,5 +18,6 @@ router.get('/users', authMiddleware, userController.getUsers);
 router.post('/postBoard', boardController.postBoard);
 router.put('/createBoard', userController.createBoard);
 router.get('/getBoard/:idBoard', boardController.getBoard);
+router.put('/addColumn', boardController.addColumn);
 
 module.exports = router

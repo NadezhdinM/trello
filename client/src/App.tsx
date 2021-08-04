@@ -21,7 +21,8 @@ const App: FC = () => {
 		if (localStorage.getItem('token')) {
 			store.checkAuth()
 		}
-	}, [store]);
+		console.log('----------------------------------------');
+	}, []);
 
 	if (store.isLoading) {
 		return <Logo />

@@ -6,10 +6,11 @@ import { AuthResponse } from "../models/response/AuthResponse";
 import { API_URL } from "../http";
 import BoardService from "../services/BoardService";
 import UserService from "../services/UserService";
+import { IBoard } from "../models/IBoard";
 
 export default class Store {
 	user = {} as IUser;
-	board = {};
+	board = {} as IBoard;
 	isAuth = false;
 	isLoading = false;
 	isActive = false;
@@ -95,10 +96,11 @@ export default class Store {
 	async postBoard(name: string, access: string, bg: string, chief: string) {
 		try {
 			const responseBoard = await BoardService.postBoard(name, access, bg, chief);
-			const chiefBoard = responseBoard.data.board.chief,
-				idBoard = responseBoard.data.board._id,
-				nameBoard = responseBoard.data.board.name,
-				bgBoard = responseBoard.data.board.bg;
+			console.log(responseBoard);
+			const chiefBoard = responseBoard.data.chief,
+				idBoard = responseBoard.data._id,
+				nameBoard = responseBoard.data.name,
+				bgBoard = responseBoard.data.bg;
 			const responseUser = await UserService.createBoard(chiefBoard, idBoard, nameBoard, bgBoard);
 			this.setUser(responseUser.data);
 		} catch (e) {
@@ -107,6 +109,7 @@ export default class Store {
 	}
 
 	async getBoard(idBoard: string) {
+
 		try {
 			const responseBoard = await BoardService.getBoard(idBoard);
 			this.setBoard(responseBoard.data);
@@ -114,6 +117,19 @@ export default class Store {
 			this.setWarning(true);
 			setTimeout(() => this.setWarning(false), 3000);
 			setTimeout(() => window.location.replace("/"), 3000);
+		} finally {
+
+		}
+	}
+
+	async addColumn(idBoard: string, columnText: string) {
+		try {
+			const addColumn = await BoardService.addColumn(idBoard, columnText);
+			console.log(addColumn);
+			this.setBoard(addColumn.data);
+			console.log(this.board);
+		} catch (e) {
+			console.log(e);
 		}
 	}
 }

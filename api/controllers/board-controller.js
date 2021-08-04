@@ -19,6 +19,15 @@ class BoardController {
 			res.status(500).json(e);
 		}
 	}
+	async addColumn(req, res, next) {
+		try {
+			const {idBoard, columnText} = req.body;
+			const board = await boardService.addColumn(idBoard, columnText);
+			return res.json(board);
+		} catch (e) {
+			next(e);
+		}
+	}
 }
 
 module.exports = new BoardController();
