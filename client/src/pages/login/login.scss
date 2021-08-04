@@ -1,0 +1,93 @@
+.main__logo {
+	display: block;
+	height: 43px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.login {
+	width: 100%;
+	padding: 0px;
+	overflow: visible;
+	margin-bottom: 30px;
+	&__inner {
+
+	}
+}
+
+.login__inner h1 {
+	text-align: center;
+	color: #5E6C84;
+	font-size: 16px;
+	letter-spacing: -0.01em;
+	line-height: 28px;
+	margin-top: 10px;
+	margin-bottom: 25px;
+}
+
+.form {
+	max-width: 400px;
+	margin: 0 auto;
+	&__inner {
+		background-color: #FFFFFF;
+		border-radius: 3px;
+		padding: 25px 40px;
+		box-shadow: rgb(0, 0, 0 / 10%) 0 0 10px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__field {
+		font-size: 14px;
+		background-color: #FAFBFC;
+		border: 2px solid #DFE1E6;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		border-radius: 3px;
+		height: 44px;
+		-webkit-transition: background-color .2s ease-in-out 0s,border-color .2s ease-in-out 0s;
+		transition: background-color .2s ease-in-out 0s,border-color .2s ease-in-out 0s;
+		padding: .5em;
+		&:focus-visible {
+			background-color: white;
+			border: 2px solid #4C9AFF;
+			box-shadow: 0 0 0;
+		}
+		&:active {
+			background-color: white;
+			border: 2px solid #4C9AFF;
+			box-shadow: 0 0 0;
+		}
+	}
+
+	&__btn {
+
+	}
+	&__forgot {
+
+	}
+	
+	&__link {
+		text-align: center;
+		font-size: 14px;
+		display: block;
+		padding: 0;
+		li {
+			display: inline-block;
+			list-style: none;
+			a {
+				text-decoration: none;
+   			color: #0052CC;
+			}
+		}
+		li:not(:first-child)::before {
+			content: "\2022";
+			margin: 0 8px 0px 4px;
+		}
+	}
+	&__signup {
+		
+	}
+}

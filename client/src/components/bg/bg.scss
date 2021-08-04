@@ -1,0 +1,25 @@
+.bg {
+	z-index: -900;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	&__left {
+		position: absolute;
+		width: 400px;
+		bottom: 0;
+		left: 0;
+		z-index: -999;
+		max-width: 30%;
+	}
+	&__right {
+		position: absolute;
+		width: 400px;
+		bottom: 0;
+		right: 0;
+		z-index: -999;
+		max-width: 30%;
+	}
+}

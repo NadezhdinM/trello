@@ -1,0 +1,14 @@
+.main {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+.content {
+	width: 100%;
+	max-width: 825px;
+	min-width: 288px;
+	margin: 0 16px 0;
+}
