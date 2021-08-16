@@ -1,43 +1,109 @@
 .board {
 	padding-top: 4px;
-	background-color: rgb(81, 152, 57);
-	min-height: calc(100vh - 45px - 40px);
+	padding-bottom: 8px;
+	background-color: #519839;
+	min-height: calc(100vh - 45px - 36px);
 	overflow: hidden;
-	
-	&__inner	{	
-		
+	position: relative;
+	box-sizing: border-box;
+	overflow-x: auto;
+	overflow-y: hidden;
+	&::-webkit-scrollbar-track {
+		background: rgba(9,30,66,.08);
 	}
-	&__column {
-		border-radius: 3px;
-		width: 272px;
-		margin: 0 4px;
+	&::-webkit-scrollbar {
+		height: 12px;
+		width: 12px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: rgba(9,30,66,.50);
+	}
+	&__inner	{	
+		display: flex;
 		height: 100%;
 		box-sizing: border-box;
-		display: inline-block;
-		vertical-align: top;
-		white-space: nowrap;
+		padding-bottom: 14px;
+		position: absolute;		
+		&:first-child {
+			margin-left: 8px;
+		}
+	}
+	&__wrapper {
+		border-radius: 3px;
+		width: 272px;
+		max-height: 100%;
+		margin: 0 4px;
+		display: flex;
 		background-color: #ebecf0;
+		flex-direction: column;
+		&-active {
+			cursor: grabbing;
+			transform: rotate(4deg);
+		}
+		&.placeholder {
+			background-color: rgba(0,0,0,.12);
+			border-color: transparent;
+			box-shadow: none;
+			border-radius: 3px;
+		}
+	}
+	&__column {
+		height: 100%;
+		&:first-child {
+			margin-left: 4px;
+		}		
 	}
 
 	&__column-top {
-		padding: 5px 8px 0;
-		h2 {		
-			padding: 4px 8px;	
+		padding: 10px 8px;
+		cursor: pointer;
+		input {		
+			outline: none;
+			border: none;
+			width: 100%;
+			box-sizing: border-box;
+			border-radius: 3px;
+			display: block;
+			margin: 0;
+			background: transparent;
+			box-shadow: none;
+			font-weight: 600;
+			height: 28px;
+			overflow-y: hidden;
+			min-height: 20px;
+			padding: 4px 8px;
+			resize: none;
+			max-height: 256px;
+			line-height: 1;
 			font-size: 14px;
+			cursor: pointer;
+			&:focus {
+				background-color: #fff;
+				box-shadow: inset 0 0 0 2px #0079bf;
+				cursor: auto;
+			}
 		}
 	}
 	&__column-main {
-		
-	}
-	&__column-btm {
-		
+		margin: 0 8px;
+		padding-right: 4px;
+		overflow-x: hidden;
+		&::-webkit-scrollbar-track {
+			background: rgba(9,30,66,.08);
+		}
+		&::-webkit-scrollbar {
+			height: 8px;
+			width: 8px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: rgba(9,30,66,.50);
+		}
 	}
 	&__column-btm-a {
 		display: flex;
 		align-items: center;
 		cursor: pointer;
 		border-radius: 3px;
-		margin: 2px 8px 8px 8px;
 		padding: 0 5px;
 		&:hover {
 			background-color: rgba(9,30,66,.08);
@@ -60,7 +126,6 @@
 	&__column-add {
 		width: 272px;
 		margin: 0 4px;
-		height: 100%;
 		box-sizing: border-box;
 		display: inline-block;
 		vertical-align: top;
@@ -68,7 +133,6 @@
 		&.active {
 			background-color: #ebecf0;
 			border-radius: 3px;
-			height: auto;
 			min-height: 32px;
 			padding: 4px;
 			transition: background 85ms ease-in,opacity 40ms ease-in,border-color 85ms ease-in;
@@ -79,9 +143,6 @@
 				display: block;
 			}
 		}
-	}
-	&__column-form {
-
 	}
 	&__column-add-a {
 		display: flex;

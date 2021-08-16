@@ -10,11 +10,12 @@ import { IBoard } from "../models/IBoard";
 
 export default class Store {
 	user = {} as IUser;
-	board = {} as IBoard;
+	board = {} as IBoard || null;
 	isAuth = false;
 	isLoading = false;
 	isActive = false;
 	isWarning = false;
+	activeAdd = false;
 
 	constructor() {
 		makeAutoObservable(this);
@@ -28,16 +29,8 @@ export default class Store {
 		this.user = user;
 	}
 
-	setBoard(board: any) {
-		this.board = board;
-	}
-
 	setLoading(bool: boolean) {
 		this.isLoading = bool;
-	}
-
-	setWarning(bool: boolean) {
-		this.isWarning = bool;
 	}
 
 	setActive(bool: boolean) {
@@ -103,31 +96,6 @@ export default class Store {
 				bgBoard = responseBoard.data.bg;
 			const responseUser = await UserService.createBoard(chiefBoard, idBoard, nameBoard, bgBoard);
 			this.setUser(responseUser.data);
-		} catch (e) {
-			console.log(e);
-		}
-	}
-
-	async getBoard(idBoard: string) {
-
-		try {
-			const responseBoard = await BoardService.getBoard(idBoard);
-			this.setBoard(responseBoard.data);
-		} catch (e) {
-			this.setWarning(true);
-			setTimeout(() => this.setWarning(false), 3000);
-			setTimeout(() => window.location.replace("/"), 3000);
-		} finally {
-
-		}
-	}
-
-	async addColumn(idBoard: string, columnText: string) {
-		try {
-			const addColumn = await BoardService.addColumn(idBoard, columnText);
-			console.log(addColumn);
-			this.setBoard(addColumn.data);
-			console.log(this.board);
 		} catch (e) {
 			console.log(e);
 		}

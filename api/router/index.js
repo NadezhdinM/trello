@@ -15,9 +15,11 @@ router.post('/logout', userController.logout);
 router.get('/activate/:link', userController.activate);
 router.get('/refresh', userController.refresh);
 router.get('/users', authMiddleware, userController.getUsers);
-router.post('/postBoard', boardController.postBoard);
-router.put('/createBoard', userController.createBoard);
-router.get('/getBoard/:idBoard', boardController.getBoard);
-router.put('/addColumn', boardController.addColumn);
+router.post('/postBoard', authMiddleware, boardController.postBoard);
+router.put('/createBoard', authMiddleware, userController.createBoard);
+router.get('/getBoard/:idBoard', authMiddleware, boardController.getBoard);
+router.put('/addColumn', authMiddleware, boardController.addColumn);
+router.put('/changeColumns', authMiddleware, boardController.changeColumns);
+router.put('/addCard', authMiddleware, boardController.addCard);
 
 module.exports = router

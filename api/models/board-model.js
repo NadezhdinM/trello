@@ -8,9 +8,14 @@ const BoardSchema = new Schema({
 	columns: [
 		new Schema({ 
 			nameColumn: {type: String, required: true},
-			cards: []
-		}, { _id: false })
-	],
+			cards: [
+				new Schema({ 
+					nameCard: {type: String, required: true}
+				})
+			],
+			order: { type: String, required: true }
+		})
+	]
 })
 
 module.exports = model('Board', BoardSchema);

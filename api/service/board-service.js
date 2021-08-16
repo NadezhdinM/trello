@@ -12,10 +12,39 @@ class BoardService {
 	async addColumn(idBoard, columnText) {
 		const board = await BoardModel.findByIdAndUpdate(
 			idBoard,
-			{ $push: { columns: [{
-				nameColumn: columnText, 
-				cards: []
-			}]}}, 
+			{ $push: { 
+				columns: [{
+					nameColumn: columnText, 
+					cards: []
+				}],
+			}}, 
+			{new: true}
+		);
+		return board;
+	}
+	async changeColumns(idBoard, columns) {
+		const columnsData = await BoardModel.findByIdAndUpdate(
+			idBoard,
+			{ $set: { 
+				columns: columns
+			}}, 
+			{new: true}
+		);
+		return columnsData;
+	}
+	async addCard(idBoard, index, cardName, order) {
+		
+		const board = await BoardModel.findByIdAndUpdate(
+			idBoard, 
+			{ 
+				$push: {
+					[`columns.${index}.cards`]: [{
+						nameCard: cardName, 
+						order: order
+					}]
+				},
+
+			},
 			{new: true}
 		);
 		return board;

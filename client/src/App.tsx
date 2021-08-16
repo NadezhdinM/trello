@@ -19,10 +19,9 @@ const App: FC = () => {
 	const { store } = useContext(Context);
 	useEffect(() => {
 		if (localStorage.getItem('token')) {
-			store.checkAuth()
+			store.checkAuth();
 		}
-		console.log('----------------------------------------');
-	}, []);
+	}, [store]);
 
 	if (store.isLoading) {
 		return <Logo />
