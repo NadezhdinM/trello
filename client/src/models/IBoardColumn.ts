@@ -1,7 +1,10 @@
+export interface IBoardCard {
+}
+
 export interface IBoardColumn {
 	nameColumn: string;
 	order: number;
 	_id: string;
-	cards: any;
+	cards: IBoardCard[];
 	length: number;
 }

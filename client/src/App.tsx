@@ -12,8 +12,8 @@ import Personal from './pages/personal/Personal';
 import Signup from './pages/signup/Signup';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
-import Logo from './components/loading/Loading';
 import Board from './pages/board/Board';
+import Logo from './components/loading/Loading';
 
 const App: FC = () => {
 	const { store } = useContext(Context);
@@ -21,7 +21,7 @@ const App: FC = () => {
 		if (localStorage.getItem('token')) {
 			store.checkAuth();
 		}
-	}, [store]);
+	}, []);
 
 	if (store.isLoading) {
 		return <Logo />
@@ -45,7 +45,6 @@ const App: FC = () => {
 				<Route path={`/b/:boardId`}>
 					<Board />
 				</Route>
-
 			</Switch>
 		</Router>
 	);

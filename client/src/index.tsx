@@ -9,14 +9,10 @@ interface State {
 
 const store = new Store();
 
-export const Context = createContext<State>({
-	store
-})
+export const Context = createContext<State>({ store })
 
 ReactDOM.render(
-	<Context.Provider value={{
-		store
-	}}>
+	<Context.Provider value={{ store }}>
 		<App />
 	</Context.Provider>,
 	document.getElementById('root')

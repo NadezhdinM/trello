@@ -1,8 +1,10 @@
+import { IBoardColumn } from "./IBoardColumn";
+
 export interface IBoard {
 	access: string;
 	bg: string;
 	chief: string;
-	columns: any;
+	columns: IBoardColumn[];
 	name: string;
 	_id: string;
 	length: number;

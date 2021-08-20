@@ -3,7 +3,7 @@ import Header from '../../components/header/Header';
 import Hero from '../../components/hero/Hero';
 import './home.scss';
 
-function Home() {
+const Home = () => {
 	return (
 		<>
 			<Header />

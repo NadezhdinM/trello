@@ -1,12 +1,15 @@
 import { IUser } from "../models/IUser";
-import { makeAutoObservable } from "mobx";
-import AuthService from "../services/AuthService";
-import axios from 'axios';
+import { IBoard } from "../models/IBoard";
 import { AuthResponse } from "../models/response/AuthResponse";
-import { API_URL } from "../http";
+
+import AuthService from "../services/AuthService";
 import BoardService from "../services/BoardService";
 import UserService from "../services/UserService";
-import { IBoard } from "../models/IBoard";
+
+import axios from 'axios';
+import { API_URL } from "../http";
+
+import { makeAutoObservable } from "mobx";
 
 export default class Store {
 	user = {} as IUser;

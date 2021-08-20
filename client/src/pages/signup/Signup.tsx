@@ -1,11 +1,10 @@
 import "./signup.scss";
-import { Link } from "react-router-dom";
-import React, { FC, useContext } from 'react';
 import Bg from "../../components/bg/Bg";
-import { Context } from "../..";
-import { useState } from "react";
-import { observer } from "mobx-react-lite";
 
+import { Link } from "react-router-dom";
+import React, { FC, useContext, useState } from 'react';
+import { observer } from "mobx-react-lite";
+import { Context } from "../..";
 
 const Signup: FC = () => {
 	const [email, setEmail] = useState<string>('');

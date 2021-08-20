@@ -8,6 +8,7 @@ import Column from '../../components/column/Column';
 import plus from '../../pages/board/plus.svg';
 import close from '../../pages/board/close.svg';
 import Loading from '../../components/loading/Loading';
+import { IBoardColumn } from '../../models/IBoardColumn';
 
 const Board: FC = () => {
 
@@ -55,7 +56,7 @@ const Board: FC = () => {
 					<div className="board__inner">
 						<>
 
-							{Array.from(columns).map((column: any, index: number, array: any) => {
+							{Array.from(columns).map((column: IBoardColumn, index: number, array: any) => {
 								return <Column key={column._id} column={column} CI={index} path={path} columns={array} setColumns={setColumns} />
 							})}
 							<div className="board__sign">
